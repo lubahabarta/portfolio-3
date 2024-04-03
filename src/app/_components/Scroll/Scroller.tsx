@@ -9,7 +9,7 @@ export default function Scroller({
     children: React.ReactNode;
 }>) {
     return (
-        <div id="scroll-container" data-scroll-container>
+        <div id="scroll-container" data-scroll-container className="overflow-hidden">
             {children}
         </div>
     );

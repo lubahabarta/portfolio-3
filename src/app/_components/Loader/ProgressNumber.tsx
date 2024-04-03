@@ -12,7 +12,7 @@ function ProgressNumber({
     if (progressLabel > 0) {
         return (
             <span
-                className={`absolute top-0 text-3xl font-extralight opacity-0 ${
+                className={`absolute top-0 text-[4vw] font-extralight opacity-0 ${
                     progress >= progressLabel && progressLabel % 10 === 0
                         ? "animate-progress"
                         : progressLabel === progress

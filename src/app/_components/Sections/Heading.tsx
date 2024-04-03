@@ -22,7 +22,7 @@ export default function Heading({ title }: { title: string }) {
             data-scroll-position="top"
             data-scroll-direction="horizontal"
             data-scroll-speed="2"
-            className="absolute top-0 left-[-50%] flex gap-10 text-5xl uppercase leading-tight border-y-4 border-slate-700"
+            className="absolute top-4 left-[-50%] flex gap-10 text-5xl md:text-[5vw] uppercase leading-tight border-y-4 border-slate-700"
         >
             {renderTitles()}
         </h1>

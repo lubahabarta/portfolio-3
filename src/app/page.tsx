@@ -33,13 +33,13 @@ export default function Page() {
         <>
             <Loader loading={loading} setLoading={handleSetLoading} />
             <Mouse loading={loading} hovering={hovering} />
-            <Background />
-            <Navbar
-                loading={loading}
-                scroll={scroll}
-                setHovering={handleSetHovering}
-            />
             <Scroller>
+                <Background />
+                <Navbar
+                    loading={loading}
+                    scroll={scroll}
+                    setHovering={handleSetHovering}
+                />
                 <main className={`${loading ? "opacity-0" : ""}`}>
                     <Hero />
                     <About />

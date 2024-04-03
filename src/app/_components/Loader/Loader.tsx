@@ -11,11 +11,8 @@ export default function Loader({
     setLoading: (val: boolean) => void;
 }) {
     const [progress, setProgress] = useState(0);
-    const windowResized = useResized();
 
     const ref = useRef<HTMLDivElement | null>(null);
-
-    // TODO: disable scroll
 
     useEffect(() => {
         setProgress(0);
@@ -30,7 +27,7 @@ export default function Loader({
         if (loading) {
             updateProgress(0);
         }
-    }, [loading]);
+    }, [loading, setLoading]);
 
     const renderProgress = useCallback(() => {
         const renderArr: JSX.Element[] = [];
@@ -50,12 +47,12 @@ export default function Loader({
         }
 
         return renderArr;
-    }, [progress, windowResized]);
+    }, [progress]);
 
     if (loading) {
         return (
             <aside className="fixed top-0 left-0 z-50 h-device w-screen flex items-center justify-center">
-                <div ref={ref} className="w-[90%] relative flex">
+                <div ref={ref} className="w-[85%] relative flex">
                     {loading && renderProgress()}
                 </div>
             </aside>
