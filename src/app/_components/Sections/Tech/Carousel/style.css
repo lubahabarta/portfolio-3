@@ -1,0 +1,13 @@
+.embla {
+    overflow: hidden;
+}
+.embla__container {
+    display: flex;
+}
+
+/* .embla__container::before,
+.embla__container::after {
+    content: '';
+    background-color: red;
+    min-width: 50px;
+} */
