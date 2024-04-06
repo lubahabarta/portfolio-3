@@ -7,7 +7,7 @@ export default function Tech() {
             data-scroll-section
             className="h-device flex items-center justify-center"
         >
-            fdsaf
+            fasdfasdf
         </section>
     )
 }
