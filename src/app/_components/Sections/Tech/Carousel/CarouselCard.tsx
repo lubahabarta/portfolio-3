@@ -2,7 +2,7 @@ import React from 'react'
 
 const CarouselCard = () => {
     return (
-        <div className="embla__slide md:min-w-52 min-w-28 h-10 bg-slate-600"></div>
+        <div className="embla__slide min-w-32 h-40 md:min-w-40 md:h-48 bg-slate-100"></div>
     )
 }
 

@@ -15,7 +15,7 @@ import useScroll from './_components/Scroll/useScroll'
 import useTheme, { Theme } from './_hooks/useTheme'
 
 export default function Page() {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [hovering, setHovering] = useState(false)
 
     const scroll = useScroll()
@@ -44,7 +44,7 @@ export default function Page() {
                     <Hero />
                     <About />
                     <Tech setHovering={handleSetHovering} />
-                    <Contacts />
+                    {/* <Contacts /> */}
                 </main>
                 <Footer />
             </Scroller>
