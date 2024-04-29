@@ -1,27 +1,22 @@
-import useResized from "@/app/_hooks/useResized";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from 'react'
 
-export default function useMousePosition(loading: boolean) {
-    const [mousePosition, setMousePosition] = useState({
+export default function useMousePosition() {
+    const mousePositionRef = useRef({
         x: 0,
         y: 0,
-    });
+    })
+
+    function getMousePosition(e: MouseEvent) {
+        mousePositionRef.current = {
+            x: e.clientX,
+            y: e.clientY,
+        }
+    }
 
     useEffect(() => {
-        function getMousePosition(e: MouseEvent) {
-            setMousePosition({
-                x: e.clientX,
-                y: e.clientY,
-            });
-        }
+        window.addEventListener('mousemove', getMousePosition)
+        return () => window.removeEventListener('mousemove', getMousePosition)
+    }, [])
 
-        if (!loading) {
-            window.addEventListener("mousemove", getMousePosition);
-
-            return () =>
-                window.removeEventListener("mousemove", getMousePosition);
-        }
-    }, [loading]);
-
-    return { mousePosition };
+    return { x: mousePositionRef.current.x, y: mousePositionRef.current.y }
 }
