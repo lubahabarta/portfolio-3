@@ -2,8 +2,24 @@
 
 import React, { useRef } from 'react'
 import * as THREE from 'three'
-import { extend, MeshProps, ReactThreeFiber, useFrame } from '@react-three/fiber'
+import {
+    extend,
+    MeshProps,
+    ReactThreeFiber,
+    useFrame,
+} from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
+
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            customMaterial: ReactThreeFiber.Object3DNode<
+                typeof CustomMaterial & { wireframe: boolean; uTime: number },
+                typeof CustomMaterial
+            >
+        }
+    }
+}
 
 const CustomMaterial = shaderMaterial(
     // Uniforms
@@ -61,32 +77,44 @@ const CustomMaterial = shaderMaterial(
         );
     }
 
+    mat2 rotate2d(float angle) {
+        return mat2(
+            cos(angle), -sin(angle),
+            sin(angle), cos(angle)
+        );
+    }
+
     void main() {
-        // float n = noise(vPosition + uTime);
+        vec3 baseSecond = vec3(120./255., 158./255., 113./255.);
+        vec3 accent = vec3(0., 0., 0.);
+        vec3 baseFirst = vec3(224./255., 148./255., 66./255.);
 
-        vec2 baseUV = vPosition.xy;
-        float basePattern = lines(baseUV, .5);
+        // vec3 baseSecond = vec3(135./255., 97./255., 142./255.);
+        // vec3 accent = vec3(1., 1., 1.);
+        // vec3 baseFirst = vec3(31./255., 107./255., 189./255.);
+        
+        float n = noise(vPosition + uTime / 3.) / 1.5;
 
-        gl_FragColor = vec4(vec3(basePattern), 1.);
+        vec2 baseUV = rotate2d(n + .4) * vPosition.xy / 4.;
+
+        vec2 stripe = vec2(floor(baseUV.x * 16.) / 16., baseUV.y);
+
+        float basePattern = lines(stripe, .1);
+        float secondPattern = lines(stripe, .5);
+
+        vec3 baseColor = mix(baseSecond, baseFirst, secondPattern);
+        vec3 secondColor = mix(baseColor, accent, basePattern);
+
+        gl_FragColor = vec4(secondColor, 1.);
     }
     `
 )
 
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            customMaterial: ReactThreeFiber.Object3DNode<
-                typeof CustomMaterial & { wireframe: boolean, uTime: number },
-                typeof CustomMaterial
-            >
-        }
-    }
-}
 extend({ CustomMaterial })
 
 export default function Plane({ ...props }: MeshProps) {
     const ref = useRef<any | null>(null)
-    useFrame(({clock}) => {
+    useFrame(({ clock }) => {
         if (ref.current) {
             ref.current.uTime = clock.getElapsedTime()
         }
@@ -94,7 +122,7 @@ export default function Plane({ ...props }: MeshProps) {
 
     return (
         <mesh {...props}>
-            <planeGeometry args={[16, 9, 16, 16]} />
+            <planeGeometry args={[16, 16, 16, 16]} />
             <customMaterial ref={ref} />
         </mesh>
     )
