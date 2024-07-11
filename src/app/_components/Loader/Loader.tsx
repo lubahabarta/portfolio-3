@@ -1,6 +1,5 @@
 import React, { useCallback, useRef } from "react";
 import { useEffect, useState } from "react";
-import useResized from "../../_hooks/useResized";
 import ProgressNumber from "./ProgressNumber";
 
 export default function Loader({
@@ -51,7 +50,7 @@ export default function Loader({
 
     if (loading) {
         return (
-            <aside className="fixed top-0 left-0 z-50 h-device w-screen flex items-center justify-center">
+            <aside className="fixed top-0 left-0 z-40 h-device w-screen flex items-center justify-center bg-stone-950">
                 <div ref={ref} className="w-[85%] relative flex">
                     {loading && renderProgress()}
                 </div>

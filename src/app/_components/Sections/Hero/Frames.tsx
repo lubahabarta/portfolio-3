@@ -9,7 +9,7 @@ export function TopLeft({ className }: { className: string }) {
                     y1={50}
                     x2={2}
                     y2={2}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
                 <line
@@ -17,7 +17,7 @@ export function TopLeft({ className }: { className: string }) {
                     y1={1}
                     x2={30}
                     y2={1}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
                 <line
@@ -25,7 +25,7 @@ export function TopLeft({ className }: { className: string }) {
                     y1={25}
                     x2={49}
                     y2={1}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
             </svg>
@@ -42,7 +42,7 @@ export function TopRight({ className }: { className: string }) {
                     y1={1}
                     x2={50}
                     y2={1}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
                 <line
@@ -50,7 +50,7 @@ export function TopRight({ className }: { className: string }) {
                     y1={2}
                     x2={49}
                     y2={30}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
             </svg>
@@ -73,7 +73,7 @@ export function BottomLeft({ className }: { className: string }) {
                     y1={50}
                     x2={2}
                     y2={2}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
                 <line
@@ -81,7 +81,7 @@ export function BottomLeft({ className }: { className: string }) {
                     y1={49}
                     x2={50}
                     y2={49}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
                 <line
@@ -89,7 +89,7 @@ export function BottomLeft({ className }: { className: string }) {
                     y1={49}
                     x2={25}
                     y2={25}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
             </svg>
@@ -112,7 +112,7 @@ export function BottomRight({ className }: { className: string }) {
                     y1={2}
                     x2={49}
                     y2={49}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
                 <line
@@ -120,7 +120,7 @@ export function BottomRight({ className }: { className: string }) {
                     y1={49}
                     x2={48}
                     y2={48}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
                 <line
@@ -128,7 +128,7 @@ export function BottomRight({ className }: { className: string }) {
                     y1={2}
                     x2={25}
                     y2={25}
-                    className="stroke-slate-700"
+                    className="stroke-white"
                     strokeWidth={2}
                 />
             </svg>

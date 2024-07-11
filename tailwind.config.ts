@@ -2,27 +2,31 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
     content: [
-        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/app/Navbar/Navbar.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
         extend: {
             height: {
-                device: "100dvh",
+                device: '100dvh',
+            },
+            width: {
+                device: '100dvw',
             },
             animation: {
-                progress: "progress 1s ease-in",
+                progress: 'progress 1s ease-in',
             },
             keyframes: {
                 progress: {
-                    "0%": { opacity: "1" },
-                    "100%": { opacity: "0" },
+                    '0%': { opacity: '1' },
+                    '100%': { opacity: '0' },
                 },
             },
         },
     },
-    darkMode: "selector",
+    darkMode: 'selector',
     plugins: [],
-};
+}
 export default config;

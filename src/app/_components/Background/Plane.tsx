@@ -85,19 +85,26 @@ const CustomMaterial = shaderMaterial(
     }
 
     void main() {
-        vec3 baseSecond = vec3(120./255., 158./255., 113./255.);
-        vec3 accent = vec3(0., 0., 0.);
-        vec3 baseFirst = vec3(224./255., 148./255., 66./255.);
+        // vec3 baseSecond = vec3(120./255., 158./255., 113./255.);
+        // vec3 accent = vec3(0., 0., 0.);
+        // vec3 baseFirst = vec3(224./255., 148./255., 66./255.);
 
         // vec3 baseSecond = vec3(135./255., 97./255., 142./255.);
         // vec3 accent = vec3(1., 1., 1.);
         // vec3 baseFirst = vec3(31./255., 107./255., 189./255.);
+
+        // #7c3aed
+        vec3 baseSecond = vec3(124./255., 58./255., 237./255.);
+        // 5, 46, 22
+        vec3 accent = vec3(5./255., 46./255., 22./255.);
+        // 245, 158, 11
+        vec3 baseFirst = vec3(245./255., 158./255., 11./255.);
         
-        float n = noise(vPosition + uTime / 3.) / 1.5;
+        float n = noise(vPosition + uTime / 4.) * 1.1;
 
-        vec2 baseUV = rotate2d(n + .4) * vPosition.xy / 4.;
+        vec2 baseUV = rotate2d(n + .4) * vPosition.xy / 2.;
 
-        vec2 stripe = vec2(floor(baseUV.x * 16.) / 16., baseUV.y);
+        vec2 stripe = vec2(floor(baseUV.x * 25.) / 15., baseUV.y);
 
         float basePattern = lines(stripe, .1);
         float secondPattern = lines(stripe, .5);

@@ -1,15 +1,14 @@
 import React from "react";
-import Heading from "./Heading";
 
 export default function About() {
     return (
         <section
             id="about-section"
-            data-scroll-section
-            className="relative h-device flex items-center justify-center overflow-hidden"
+            className="relative bg-stone-950 before:content-[''] before:absolute before:-top-12 before:w-screen before:h-12 before:bg-gradient-to-t before:from-stone-950 before:to-transparent"
         >
-            <Heading title="About" />
-            About section
+            <div className="h-device flex items-center justify-center overflow-hidden">
+                About section
+            </div>
         </section>
-    );
+    )
 }

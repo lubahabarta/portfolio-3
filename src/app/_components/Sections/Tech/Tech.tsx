@@ -9,10 +9,9 @@ export default function Tech({
     return (
         <section
             id="technology-section"
-            data-scroll-section
             className="h-device flex items-center justify-center"
         >
-            <div className="bg-white py-24">
+            <div className="bg-stone-950 py-24">
                 <article className="px-12">
                     <h1 className="text-4xl">Techonology</h1>
                     <p className="max-w-prose mt-4">
