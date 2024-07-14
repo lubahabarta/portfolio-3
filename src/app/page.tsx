@@ -1,18 +1,19 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Loader from './_components/Loader/Loader'
 import Navbar from './_components/Navbar/Navbar'
 import Hero from './_components/Sections/Hero/Hero'
-import About from './_components/Sections/About'
+import About from './_components/Sections/About/About'
 import Footer from './_components/Sections/Footer/Footer'
 import Mouse from './_components/Mouse/Mouse'
 import Tech from './_components/Sections/Tech/Tech'
-import Scroller from './_components/Scroller/Scroller'
+import Main from './_components/Main/Main'
 import dynamic from 'next/dynamic'
-import Noisy from './_components/Noisy/Noisy'
+import Noisy from './_components/Overlay/Noisy'
 import Title from './_components/Title/Title'
 import useTheme, { Theme } from './_hooks/useTheme'
+import useScroll from './_hooks/useScroll'
 
 const Scene = dynamic(
     () =>
@@ -31,28 +32,24 @@ export default function Page() {
     const handleSetLoading = (val: boolean) => setLoading(val)
     const handleSetHovering = (val: boolean) => setHovering(val)
 
+    useScroll()
     useTheme(Theme.light)
 
     return (
         <>
-            {/* <Title /> */}
+            <Title />
             <Noisy />
             <Loader loading={loading} setLoading={handleSetLoading} />
             <Scene />
             <Mouse loading={loading} hovering={hovering} />
-            <Navbar
-                loading={loading}
-                setHovering={handleSetHovering}
-            />
-            <Scroller>
-                <main>
-                    <Hero />
-                    <About />
-                    <Tech setHovering={handleSetHovering} />
-                    {/* <Contacts /> */}
-                </main>
-                <Footer />
-            </Scroller>
+            <Navbar loading={loading} setHovering={handleSetHovering} />
+            <Main>
+                <Hero />
+                <About />
+                <Tech setHovering={handleSetHovering} />
+                {/* <Contacts /> */}
+            </Main>
+            <Footer />
         </>
     )
 }

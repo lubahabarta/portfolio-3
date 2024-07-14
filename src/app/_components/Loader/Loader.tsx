@@ -1,38 +1,38 @@
-import React, { useCallback, useRef } from "react";
-import { useEffect, useState } from "react";
-import ProgressNumber from "./ProgressNumber";
+import React, { useCallback, useRef } from 'react'
+import { useEffect, useState } from 'react'
+import ProgressNumber from './ProgressNumber'
 
 export default function Loader({
     loading,
     setLoading,
 }: {
-    loading: boolean;
-    setLoading: (val: boolean) => void;
+    loading: boolean
+    setLoading: (val: boolean) => void
 }) {
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState(0)
 
-    const ref = useRef<HTMLDivElement | null>(null);
+    const ref = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-        setProgress(0);
+        setProgress(0)
         function updateProgress(prg: number) {
             if (prg < 100) {
-                setProgress(prg + 1);
-                setTimeout(() => updateProgress(prg + 1), 15);
+                setProgress(prg + 1)
+                setTimeout(() => updateProgress(prg + 1), 15)
             } else {
-                setTimeout(() => setLoading(false), 1000);
+                setTimeout(() => setLoading(false), 1000)
             }
         }
         if (loading) {
-            updateProgress(0);
+            updateProgress(0)
         }
-    }, [loading, setLoading]);
+    }, [loading, setLoading])
 
     const renderProgress = useCallback(() => {
-        const renderArr: JSX.Element[] = [];
+        const renderArr: JSX.Element[] = []
         if (ref.current) {
-            const width = ref.current.offsetWidth;
-            const proggressWidth = Math.floor(width / 100);
+            const width = ref.current.offsetWidth
+            const proggressWidth = Math.floor(width / 100)
             for (let i = 0; i <= 100; i++) {
                 renderArr.push(
                     <ProgressNumber
@@ -41,12 +41,12 @@ export default function Loader({
                         progressLabel={i}
                         position={proggressWidth * i}
                     />
-                );
+                )
             }
         }
 
-        return renderArr;
-    }, [progress]);
+        return renderArr
+    }, [progress])
 
     if (loading) {
         return (
@@ -55,7 +55,7 @@ export default function Loader({
                     {loading && renderProgress()}
                 </div>
             </aside>
-        );
+        )
     }
-    return null;
+    return null
 }

@@ -1,10 +1,9 @@
+'use client'
+
 import React from 'react'
+import NavLink from './Link'
 
 const navbar = [
-    {
-        title: 'home',
-        href: '#home-section',
-    },
     {
         title: 'about',
         href: '#about-section',
@@ -12,6 +11,10 @@ const navbar = [
     {
         title: 'technology',
         href: '#technology-section',
+    },
+    {
+        title: 'projects',
+        href: '#projects-section',
     },
     {
         title: 'contact',
@@ -36,13 +39,19 @@ export default function Navbar({
 
     return (
         <nav>
-            <div>top/left</div>
+            <div id="menu-links">top/left</div>
             <ul>
-                {[0, 1, 2, 3].map(link => (
-                    <li key={link}>fdsa</li>
+                {navbar.map((link) => (
+                    <NavLink
+                        key={link.href}
+                        title={link.title}
+                        href={link.href}
+                    />
                 ))}
             </ul>
-            <div>bottom/right</div>
+            <div id="menu-btn">
+                <button type="button">x</button>
+            </div>
         </nav>
     )
 }

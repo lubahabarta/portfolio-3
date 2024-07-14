@@ -9,20 +9,10 @@ export default function Tech({
     return (
         <section
             id="technology-section"
-            className="h-device flex items-center justify-center"
+            className="h-device flex items-center justify-center bg-stone-950"
         >
-            <div className="bg-stone-950 py-24">
-                <article className="px-12">
-                    <h1 className="text-4xl">Techonology</h1>
-                    <p className="max-w-prose mt-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Doloribus, quod quam. Aliquam eaque sint, accusamus
-                        aspernatur id deserunt repudiandae dolore excepturi
-                        alias. Dolores libero nostrum sed suscipit eum sequi.
-                        Natus.
-                    </p>
-                </article>
-                <Carousel setHovering={setHovering} className="mt-8"></Carousel>
+            <div className="h-device flex items-center justify-center overflow-hidden">
+                Tech section
             </div>
         </section>
     )
