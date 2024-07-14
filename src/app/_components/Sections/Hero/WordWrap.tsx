@@ -7,20 +7,20 @@ export default function WordWrap({
     className,
     split = false,
 }: {
-    children: string
+    children: string | JSX.Element
     className?: string
     split?: boolean
 }) {
     return (
-        <span className={`word-wrap ${className}`}>
-            {split ? (
+        <span className={`word-wrap${className ? className : ''}`}>
+            {split ? typeof children === "string" &&
                 children.split('').map((l, i) => (
-                    <span key={i} className="block">
+                    <span key={i} className="flex justify-center items-center">
                         {l}
                     </span>
                 ))
-            ) : (
-                <span>{children}</span>
+             : (
+                children
             )}
         </span>
     )

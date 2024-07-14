@@ -46,7 +46,7 @@ nav {
         @apply flex items-center justify-center w-20 bg-stone-950 pointer-events-auto;
     }
     #menu-links {
-        @apply border-r;
+        @apply flex flex-col gap-3 text-2xl border-r;
     }
     #menu-btn {
         @apply border-l;
@@ -68,12 +68,12 @@ nav {
 
     @media (orientation: portrait) {
         & {
-            @apply grid grid-cols-[1fr,40dvw] grid-rows-[5rem,1fr];
+            @apply grid grid-cols-[1fr,40dvw] grid-rows-[4rem,1fr];
             div {
                 @apply w-full border-t-0;
             }
             #menu-links {
-                @apply border-r;
+                @apply flex-row border-r;
             }
             #menu-btn {
                 @apply border-l-0;
@@ -105,7 +105,7 @@ section {
 
     @media (orientation: portrait) {
         & {
-            @apply px-0 pt-20;
+            @apply h-device px-0 pt-20;
         }
     }
 }

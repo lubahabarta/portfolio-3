@@ -2,6 +2,8 @@
 
 import React from 'react'
 import NavLink from './Link'
+import { FaGoogle, FaInstagram } from 'react-icons/fa'
+import { FaFacebookF } from 'react-icons/fa6'
 
 const navbar = [
     {
@@ -9,7 +11,7 @@ const navbar = [
         href: '#about-section',
     },
     {
-        title: 'technology',
+        title: 'tech stack',
         href: '#technology-section',
     },
     {
@@ -39,7 +41,32 @@ export default function Navbar({
 
     return (
         <nav>
-            <div id="menu-links">top/left</div>
+            <div id="menu-links">
+                <a
+                    href="#"
+                    onMouseOver={handleLinkOver}
+                    onMouseOut={handleLinkOut}
+                    className="p-2"
+                >
+                    <FaGoogle />
+                </a>
+                <a
+                    href="#"
+                    onMouseOver={handleLinkOver}
+                    onMouseOut={handleLinkOut}
+                    className="p-2"
+                >
+                    <FaFacebookF />
+                </a>
+                <a
+                    href="#"
+                    onMouseOver={handleLinkOver}
+                    onMouseOut={handleLinkOut}
+                    className="p-2"
+                >
+                    <FaInstagram />
+                </a>
+            </div>
             <ul>
                 {navbar.map((link) => (
                     <NavLink
@@ -50,7 +77,17 @@ export default function Navbar({
                 ))}
             </ul>
             <div id="menu-btn">
-                <button type="button">x</button>
+                <button
+                    type="button"
+                    onMouseOver={handleLinkOver}
+                    onMouseOut={handleLinkOut}
+                    className="relative flex gap-1 justify-center items-end p-2
+                        before:content-[''] before:h-6 before:w-[1px] before:bg-white
+                        after:content-[''] after:h-6 after:w-[1px] after:bg-white
+                    "
+                >
+                    <div className="h-3 w-[1px] bg-white ml-2"></div>
+                </button>
             </div>
         </nav>
     )
