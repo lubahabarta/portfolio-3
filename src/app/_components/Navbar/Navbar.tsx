@@ -27,9 +27,11 @@ const navbar = [
 
 export default function Navbar({
     loading,
+    scroll,
     setHovering,
 }: {
     loading: boolean
+    scroll: Lenis | null
     setHovering: (val: boolean) => void
 }) {
     const [opened, setOpened] = useState(false)

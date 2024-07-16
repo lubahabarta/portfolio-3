@@ -5,12 +5,14 @@ import Lenis from 'lenis'
 const lenisPromise = import('lenis')
 
 export default function useScroll() {
+    const [scroll, setScroll] = useState<Lenis | null>(null)
+
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
         lenisPromise.then((module) => {
             const lenis = new module.default()
-            lenis.on('scroll', (e: any) => {
-                console.log(e)
+            lenis.on('scroll', (e: Lenis) => {
+                setScroll(e)
             })
 
             lenis.on('scroll', ScrollTrigger.update)
@@ -22,4 +24,6 @@ export default function useScroll() {
             gsap.ticker.lagSmoothing(0)
         })
     }, [])
+
+    return scroll
 }

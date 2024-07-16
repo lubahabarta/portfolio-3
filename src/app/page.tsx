@@ -32,7 +32,7 @@ export default function Page() {
     const handleSetLoading = (val: boolean) => setLoading(val)
     const handleSetHovering = (val: boolean) => setHovering(val)
 
-    useScroll()
+    const scroll = useScroll()
     useTheme(Theme.light)
 
     return (
@@ -42,7 +42,11 @@ export default function Page() {
             <Loader loading={loading} setLoading={handleSetLoading} />
             <Scene />
             <Mouse loading={loading} hovering={hovering} />
-            <Navbar loading={loading} setHovering={handleSetHovering} />
+            <Navbar
+                loading={loading}
+                setHovering={handleSetHovering}
+                scroll={scroll}
+            />
             <Main>
                 <Hero />
                 <About />

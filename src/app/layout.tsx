@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import './globals.css'
+import useDetectDevice from './_hooks/useDetectDevice'
 
 // Kode Mono
 // Protest Guerrilla
@@ -23,6 +24,8 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
+    const isMobile = useDetectDevice()
+
     return (
         <html lang="en">
             <body

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import useMousePosition from './useMousePosition'
 import gsap from 'gsap'
 
 const lerp = (x: number, y: number, a: number) => x * (1 - a) + y * a
