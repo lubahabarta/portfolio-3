@@ -7,5 +7,5 @@ export default function Main({
 }: Readonly<{
     children: React.ReactNode
 }>) {
-    return <main>{children}</main>
+    return <main className="overflow-x-clip">{children}</main>
 }

@@ -11,7 +11,7 @@ export default function Tech({
             id="technology-section"
             className="h-device flex items-center justify-center bg-stone-950"
         >
-            <div className="h-device flex items-center justify-center overflow-hidden">
+            <div className="h-device flex items-center justify-center overflow-hidden px-20">
                 Tech section
             </div>
         </section>

@@ -12,6 +12,10 @@
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
     }
+
+    .visually-hidden {
+        @apply border-0 p-0 m-0 !absolute h-[1px] w-[1px] overflow-hidden;
+    }
 }
 
 * {
@@ -52,14 +56,18 @@ nav {
         @apply border-l;
         button {
             @apply relative;
-            &::before {
-            }
         }
     }
     ul {
         @apply flex-1 flex;
         li {
-            @apply flex-1;
+            @apply flex-1 overflow-hidden flex;
+            a {
+                @apply w-full h-full relative top-0 right-full duration-500 ease-out bg-stone-950 invisible;
+                &.opened {
+                    @apply translate-x-full visible;
+                }
+            }
             &:not(:last-child) {
                 @apply border-r;
             }
@@ -82,6 +90,12 @@ nav {
                 @apply order-1 col-span-2 flex flex-col;
                 li {
                     @apply border-t;
+                    a {
+                        @apply top-full right-0;
+                        &.opened {
+                            @apply translate-x-0 top-0 duration-500;
+                        }
+                    }
                     &:not(:last-child) {
                         @apply border-r-0;
                     }
@@ -91,21 +105,29 @@ nav {
     }
 }
 
-main {
-    @apply overflow-x-clip;
-}
-
-section {
-    @apply px-20;
-}
 #hero-section {
-    .word-wrap {
-        @apply flex-1 grid grid-cols-1 grid-rows-4;
+    @apply pb-20;
+    h1 {
+        @apply relative h-device flex flex-row font-semibold uppercase text-[9vw] px-20;
+        .word-wrap {
+            @apply flex-1 grid grid-cols-1 grid-rows-4 items-center;
+            .letter {
+                @apply w-1/2 max-w-36;
+            }
+        }
     }
 
     @media (orientation: portrait) {
         & {
-            @apply h-device px-0 pt-20;
+            h1 {
+                @apply flex-col text-[14vw] pt-16 px-0;
+                .word-wrap {
+                    @apply grid-cols-4 grid-rows-1;
+                    .letter {
+                        @apply h-1/2;
+                    }
+                }
+            }
         }
     }
 }

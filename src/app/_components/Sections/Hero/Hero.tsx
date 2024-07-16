@@ -2,19 +2,35 @@
 
 import React from 'react'
 import WordWrap from './WordWrap'
+import { B, L, W } from '../../Icons/OldEnglishFive'
 
 export default function Hero() {
     return (
-        <section id="hero-section" className="pb-8">
-            {/* FIXME: height */}
-            <h1 className="flex-1 h-device flex flex-row uppercase text-[8vw]">
-                <WordWrap split>Luba</WordWrap>
-                <WordWrap split> Web</WordWrap>
-                <WordWrap split>Dev</WordWrap>
+        <section id="hero-section">
+            <h1>
+                <span className="visually-hidden">Luba Web Dev</span>
                 <WordWrap>
-                    <span className="h-1/4 flex justify-center items-center row-span-4 self-end">
-                        <span className='text-[3vw]'>v</span>3.0
-                    </span>
+                    {[<L key="l" className="letter" />, 'u', 'b', 'a']}
+                </WordWrap>
+                <span className="flex-1" aria-hidden />
+                <WordWrap>
+                    {['', 'w', 'e', <B key="b" className="letter" />]}
+                </WordWrap>
+                <WordWrap>
+                    {[
+                        'd',
+                        'e',
+                        <W key="w" className="letter" />,
+                        <span
+                            key="spec"
+                            className="animate-spin font-thin"
+                            style={{
+                                animationDuration: '6s',
+                            }}
+                        >
+                            ❋
+                        </span>,
+                    ]}
                 </WordWrap>
             </h1>
         </section>

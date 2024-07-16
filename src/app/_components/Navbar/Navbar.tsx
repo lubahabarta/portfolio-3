@@ -1,9 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import NavLink from './Link'
 import { FaGoogle, FaInstagram } from 'react-icons/fa'
 import { FaFacebookF } from 'react-icons/fa6'
+import Lenis from 'lenis'
 
 const navbar = [
     {
@@ -31,6 +32,12 @@ export default function Navbar({
     loading: boolean
     setHovering: (val: boolean) => void
 }) {
+    const [opened, setOpened] = useState(false)
+
+    function handleOpen() {
+        setOpened((prev) => !prev)
+    }
+
     function handleLinkOver() {
         setHovering(true)
     }
@@ -68,9 +75,11 @@ export default function Navbar({
                 </a>
             </div>
             <ul>
-                {navbar.map((link) => (
+                {navbar.map((link, index) => (
                     <NavLink
                         key={link.href}
+                        index={opened ? index : navbar.length - 1 - index}
+                        opened={opened}
                         title={link.title}
                         href={link.href}
                     />
@@ -81,6 +90,7 @@ export default function Navbar({
                     type="button"
                     onMouseOver={handleLinkOver}
                     onMouseOut={handleLinkOut}
+                    onClick={handleOpen}
                     className="relative flex gap-1 justify-center items-end p-2
                         before:content-[''] before:h-6 before:w-[1px] before:bg-white
                         after:content-[''] after:h-6 after:w-[1px] after:bg-white

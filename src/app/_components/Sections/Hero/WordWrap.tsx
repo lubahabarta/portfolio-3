@@ -5,23 +5,17 @@ import React from 'react'
 export default function WordWrap({
     children,
     className,
-    split = false,
 }: {
-    children: string | JSX.Element
+    children: (JSX.Element | string)[]
     className?: string
-    split?: boolean
 }) {
     return (
-        <span className={`word-wrap${className ? className : ''}`}>
-            {split ? typeof children === "string" &&
-                children.split('').map((l, i) => (
-                    <span key={i} className="flex justify-center items-center">
-                        {l}
-                    </span>
-                ))
-             : (
-                children
-            )}
+        <span className={`word-wrap${className ? ` ${className}` : ''}`} aria-hidden>
+            {children.map((l, i) => (
+                <span key={i} className="flex justify-center items-center">
+                    {l}
+                </span>
+            ))}
         </span>
     )
 }
