@@ -93,12 +93,26 @@ export default function Navbar({
                     onMouseOver={handleLinkOver}
                     onMouseOut={handleLinkOut}
                     onClick={handleOpen}
-                    className="relative flex gap-1 justify-center items-end p-2
-                        before:content-[''] before:h-6 before:w-[1px] before:bg-white
-                        after:content-[''] after:h-6 after:w-[1px] after:bg-white
-                    "
+                    className={`relative flex gap-1 justify-center items-end p-2
+                        before:content-[''] before:relative before:h-6 before:w-[1px] before:bg-white ease-out
+                        ${
+                            opened
+                                ? 'before:rotate-45 before:left-[0.56rem] before:delay-100 before:duration-700'
+                                : 'before:left-0 before:duration-700'
+                        }
+                        after:content-[''] after:relative after:h-6 after:w-[1px] after:bg-white ease-out
+                        ${
+                            opened
+                                ? 'after:-rotate-45 after:right-[0.56rem] after:delay-100 after:duration-700'
+                                : 'after:right-0 after:duration-700'
+                        }
+                    `}
                 >
-                    <div className="h-3 w-[1px] bg-white ml-2"></div>
+                    <div
+                        className={`${
+                            opened ? 'h-0' : 'h-3 delay-300'
+                        } duration-500 ease-out w-[1px] bg-white ml-2`}
+                    ></div>
                 </button>
             </div>
         </nav>

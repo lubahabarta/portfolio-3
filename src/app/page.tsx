@@ -37,7 +37,7 @@ export default function Page() {
 
     return (
         <>
-            {/* <Title /> */}
+            <Title />
             <Noisy />
             <Loader loading={loading} setLoading={handleSetLoading} />
             <Scene />
